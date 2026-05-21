@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIYリフォーム難易度診断 | あなたのDIYはどのレベル？</title>
+  <meta name="description" content="5つの質問でDIY作業の難易度を診断。壁紙・床材・家具製作・ペンキ塗りなど、初心者OKかプロ推奨かを判定。必要な工具リストと手順も紹介。">
+  <link rel="canonical" href="https://appli-hub.com/diy-advisor/">
+
+  <!-- OGP -->
+  <meta property="og:title" content="DIYリフォーム難易度診断 | あなたのDIYはどのレベル？">
+  <meta property="og:description" content="5つの質問でDIY作業の難易度を診断。壁紙・床材・家具製作・ペンキ塗りなど、初心者OKかプロ推奨かを判定。必要な工具リストと手順も紹介。">
+  <meta property="og:url" content="https://appli-hub.com/diy-advisor/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://appli-hub.com/diy-advisor/ogp.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DIYリフォーム難易度診断",
+    "description": "DIY作業の難易度を5段階で診断し、必要な工具・手順を提案するWebアプリ",
+    "url": "https://appli-hub.com/diy-advisor/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+  }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","s3t9vl8h3v");</script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    window.onerror = function(msg, src, line, col, err) {
+      console.error('[ERROR]', msg, src, line, col, err);
+      return false;
+    };
+    window.addEventListener('unhandledrejection', function(e) {
+      console.error('[UNHANDLED REJECTION]', e.reason);
+    });
+  </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- Header -->
+  <header class="bg-orange-600 text-white py-4 px-4 shadow-md">
+    <div class="max-w-2xl mx-auto">
+      <div class="flex items-center gap-2">
+        <span class="text-3xl">🔨</span>
+        <div>
+          <h1 class="text-xl font-bold">DIYリフォーム難易度診断</h1>
+          <p class="text-orange-200 text-sm">あなたのDIYに最適なアドバイスを提案</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-4 py-8">
+
+    <!-- Intro -->
+    <div class="bg-white rounded-2xl shadow p-6 mb-6">
+      <p class="text-gray-600 text-sm leading-relaxed">DIYは正しく行えば<strong class="text-orange-600">業者費用の50〜80%削減</strong>が可能です。しかし無理な作業は安全リスクも。あなたがやりたいDIYの難易度と、必要な工具・手順を診断します。</p>
+    </div>
+
+    <!-- Quiz -->
+    <div id="quiz-section">
+      <div class="bg-white rounded-2xl shadow p-6 mb-4">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-sm text-orange-600 font-semibold" id="step-label">質問 1 / 5</span>
+          <div class="w-32 bg-gray-200 rounded-full h-2">
+            <div id="progress-bar" class="bg-orange-500 h-2 rounded-full transition-all duration-300" style="width:20%"></div>
+          </div>
+        </div>
+        <div id="question-area"></div>
+      </div>
+
+      <div class="flex gap-3">
+        <button id="prev-btn" onclick="prevStep()" class="hidden flex-1 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition">戻る</button>
+        <button id="next-btn" onclick="nextStep()" class="flex-1 py-3 bg-orange-600 text-white rounded-xl font-semibold hover:bg-orange-700 transition">次へ</button>
+      </div>
+    </div>
+
+    <!-- Result -->
+    <div id="result-section" class="hidden">
+      <div class="bg-white rounded-2xl shadow p-6 mb-6">
+        <h2 class="text-xl font-bold text-orange-600 mb-4">診断結果</h2>
+        <div id="result-content"></div>
+      </div>
+
+      <!-- Affiliate CTAs -->
+      <div class="bg-orange-50 border border-orange-200 rounded-2xl p-5 mb-4">
+        <h3 class="font-bold text-orange-800 mb-2">必要な工具をAmazonで探す</h3>
+        <p class="text-sm text-gray-600 mb-3">電動ドリル・サンダー・カッターなど、DIYに必要な工具を最安値でチェック。セット品がお得。</p>
+        <a href="https://www.amazon.co.jp/s?k=DIY%E5%B7%A5%E5%85%B7%E3%82%BB%E3%83%83%E3%83%88&tag=appadaycrea0f-22" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold rounded-xl transition">
+          AmazonでDIY工具を見る
+        </a>
+      </div>
+
+      <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-5 mb-6">
+        <h3 class="font-bold text-yellow-800 mb-2">DIYスクール・オンライン講座でスキルアップ</h3>
+        <p class="text-sm text-gray-600 mb-3">プロの技術をオンラインで学べるDIYスクール。基礎から応用まで動画で学習できます。</p>
+        <a href="A8_DIY_SCHOOL_URL_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-xl transition">
+          DIYオンライン講座を見る
+        </a>
+      </div>
+
+      <button onclick="resetQuiz()" class="w-full py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition mb-6">別のDIYを診断する</button>
+    </div>
+
+    <!-- AdSense -->
+    <div class="my-6 text-center">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Cross-links -->
+    <div class="bg-white rounded-2xl shadow p-6">
+      <h3 class="font-bold text-gray-700 mb-3">関連する節約・リフォームツール</h3>
+      <div class="grid grid-cols-1 gap-3">
+        <a href="/reform-cost-simulator/" class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl hover:border-orange-400 transition">
+          <span class="text-2xl">🏠</span>
+          <div><p class="font-semibold text-sm">リフォーム費用シミュレーター</p><p class="text-xs text-gray-500">業者依頼の費用相場を事前に確認</p></div>
+        </a>
+        <a href="/electricity-cost-advisor/" class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl hover:border-orange-400 transition">
+          <span class="text-2xl">⚡</span>
+          <div><p class="font-semibold text-sm">電気代節約アドバイザー</p><p class="text-xs text-gray-500">LED交換などDIYで電気代削減</p></div>
+        </a>
+        <a href="/solar-panel-advisor/" class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl hover:border-orange-400 transition">
+          <span class="text-2xl">☀️</span>
+          <div><p class="font-semibold text-sm">太陽光パネルアドバイザー</p><p class="text-xs text-gray-500">設置費用・回収期間を試算</p></div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-xs text-gray-400 py-6 mt-4">
+    <p>© 2026 AppliHub | <a href="/privacy/" class="underline">プライバシーポリシー</a></p>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        id: 'task',
+        text: 'やりたいDIY作業を教えてください',
+        type: 'radio',
+        options: ['壁紙の貼り替え', '床材・フローリング交換', '棚・家具の製作', 'ペンキ・塗装', '電気・水回りの修理']
+      },
+      {
+        id: 'experience',
+        text: 'DIYの経験はどのくらいありますか？',
+        type: 'radio',
+        options: ['全くない（初めて）', '少しある（小物製作程度）', 'そこそこある（木工・塗装経験）', '得意（工具を日常的に使う）']
+      },
+      {
+        id: 'tools',
+        text: '現在持っている工具は？',
+        type: 'radio',
+        options: ['工具は何も持っていない', 'ドライバー・ハンマーなど基本的な工具のみ', '電動ドリル・丸鋸など電動工具あり']
+      },
+      {
+        id: 'budget',
+        text: 'DIYにかけられる予算はいくらですか？',
+        type: 'radio',
+        options: ['3万円以下', '3〜10万円', '10万円以上']
+      },
+      {
+        id: 'purpose',
+        text: 'DIYの目的は何ですか？',
+        type: 'radio',
+        options: ['業者費用を節約したい', '趣味・ものづくりを楽しみたい', '自分好みにカスタマイズしたい']
+      }
+    ];
+
+    const taskData = {
+      '壁紙の貼り替え': {
+        difficulty: 2, label: '初心者OK',
+        color: 'green',
+        tools: ['カッター・ハサミ', 'ヘラ（スクレーパー）', 'ローラー・刷毛', 'メジャー', '脚立'],
+        steps: ['古い壁紙を剥がす（霧吹きで湿らせると剥がしやすい）', '壁の補修（穴埋め・ヤスリがけ）', '採寸してカット', 'のり付きシートまたは壁紙用のりで貼り付け', '空気を抜きながら圧着、余分をカット'],
+        caution: '角や継ぎ目は丁寧に。のりのはみ出しをすぐ拭き取ることがポイント。'
+      },
+      '床材・フローリング交換': {
+        difficulty: 3, label: '要注意',
+        color: 'yellow',
+        tools: ['丸鋸またはのこぎり', '釘打ち機またはタッカー', 'バール', 'メジャー', 'ゴム槌', '水平器'],
+        steps: ['既存の床材を撤去（バールで剥がす）', '下地の状態確認・補修', '床材のレイアウト計画・採寸', 'フローリング材の切断・加工', '釘またはボンドで固定'],
+        caution: '床下地の傷みがある場合は業者確認を推奨。防音性に影響するので集合住宅は管理規約要確認。'
+      },
+      '棚・家具の製作': {
+        difficulty: 2, label: '初心者OK',
+        color: 'green',
+        tools: ['電動ドリル・ドライバー', 'のこぎり（または丸鋸）', 'メジャー・さしがね', 'サンドペーパー', 'クランプ'],
+        steps: ['設計図・寸法の決定', '木材の購入（ホームセンターでカットサービス利用可）', '組み立て・接合（ビス・ダボ）', '表面仕上げ（サンディング）', '塗装または仕上げ剤の塗布'],
+        caution: 'ホームセンターの木材カットサービスを利用すれば丸鋸不要。設計図を事前に作成すると失敗が減る。'
+      },
+      'ペンキ・塗装': {
+        difficulty: 1, label: '初心者OK',
+        color: 'green',
+        tools: ['ローラー・刷毛', '養生テープ・マスカー', 'トレイ・バケツ', 'ヤスリ（下地処理用）', '脚立'],
+        steps: ['下地処理（汚れ落とし・補修）', '養生テープで保護', 'プライマー（下塗り）塗布', 'ペンキを2〜3回重ね塗り', '養生を丁寧に剥がして完成'],
+        caution: '換気を十分に行うこと。マスクと手袋を着用。乾燥時間を守って重ね塗りすることで仕上がりが格段によくなる。'
+      },
+      '電気・水回りの修理': {
+        difficulty: 5, label: 'プロ推奨',
+        color: 'red',
+        tools: ['資格が必要なため工具リストより専門家へ相談推奨'],
+        steps: ['電気工事は電気工事士資格が必要', '水道工事は給水装置工事主任技術者が必要', 'DIYで行うと法律違反・保険適用外になる可能性あり', '専門業者への依頼を強く推奨'],
+        caution: '電気・水回りのDIYは法律で資格が必要な作業があります。感電・水漏れ・火災のリスクもあり、業者への依頼を推奨します。'
+      }
+    };
+
+    let currentStep = 0;
+    let answers = {};
+
+    function renderQuestion() {
+      const q = questions[currentStep];
+      document.getElementById('step-label').textContent = `質問 ${currentStep + 1} / ${questions.length}`;
+      document.getElementById('progress-bar').style.width = `${((currentStep + 1) / questions.length) * 100}%`;
+      document.getElementById('prev-btn').classList.toggle('hidden', currentStep === 0);
+      document.getElementById('next-btn').textContent = currentStep === questions.length - 1 ? '診断する' : '次へ';
+
+      let html = `<p class="font-semibold text-gray-800 mb-4">${q.text}</p><div class="space-y-2">`;
+      q.options.forEach(opt => {
+        const checked = answers[q.id] === opt ? 'checked' : '';
+        html += `<label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-orange-400 transition has-[:checked]:border-orange-500 has-[:checked]:bg-orange-50">
+          <input type="radio" name="${q.id}" value="${opt}" ${checked} class="accent-orange-600"> <span class="text-sm">${opt}</span>
+        </label>`;
+      });
+      html += '</div>';
+      document.getElementById('question-area').innerHTML = html;
+    }
+
+    function saveAnswer() {
+      const el = document.querySelector(`input[name="${questions[currentStep].id}"]:checked`);
+      if (!el) return false;
+      answers[questions[currentStep].id] = el.value;
+      return true;
+    }
+
+    function nextStep() {
+      if (!saveAnswer()) { alert('選択してください'); return; }
+      if (currentStep < questions.length - 1) { currentStep++; renderQuestion(); }
+      else showResult();
+    }
+
+    function prevStep() {
+      if (currentStep > 0) { currentStep--; renderQuestion(); }
+    }
+
+    function showResult() {
+      document.getElementById('quiz-section').classList.add('hidden');
+      document.getElementById('result-section').classList.remove('hidden');
+
+      const data = taskData[answers.task] || taskData['棚・家具の製作'];
+      const expBonus = { '全くない（初めて）': 0, '少しある（小物製作程度）': 1, 'そこそこある（木工・塗装経験）': 2, '得意（工具を日常的に使う）': 3 };
+      const exp = expBonus[answers.experience] || 0;
+      const adjustedDiff = Math.max(1, data.difficulty - Math.floor(exp / 2));
+
+      const colorMap = { green: 'green', yellow: 'yellow', red: 'red' };
+      const bgMap = { green: 'bg-green-50 border-green-400 text-green-800', yellow: 'bg-yellow-50 border-yellow-400 text-yellow-800', red: 'bg-red-50 border-red-400 text-red-800' };
+
+      const stars = '★'.repeat(adjustedDiff) + '☆'.repeat(5 - adjustedDiff);
+
+      document.getElementById('result-content').innerHTML = `
+        <div class="border-l-4 rounded-xl p-4 mb-4 ${bgMap[data.color]}">
+          <p class="text-sm font-semibold mb-1">難易度判定</p>
+          <p class="text-3xl font-bold">${data.label}</p>
+          <p class="text-lg mt-1">${stars}</p>
+        </div>
+        <h3 class="font-bold text-gray-700 mb-2">必要な工具リスト</h3>
+        <ul class="space-y-1 mb-4">
+          ${data.tools.map(t => `<li class="flex items-center gap-2 text-sm p-2 bg-gray-50 rounded-lg"><span class="text-orange-500">✓</span>${t}</li>`).join('')}
+        </ul>
+        <h3 class="font-bold text-gray-700 mb-2">基本手順</h3>
+        <ol class="space-y-2 mb-4">
+          ${data.steps.map((s, i) => `<li class="flex gap-3 items-start text-sm"><span class="bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">${i+1}</span><span>${s}</span></li>`).join('')}
+        </ol>
+        <div class="bg-amber-50 border border-amber-300 rounded-xl p-3">
+          <p class="text-sm font-semibold text-amber-800 mb-1">注意ポイント</p>
+          <p class="text-sm text-amber-700">${data.caution}</p>
+        </div>`;
+    }
+
+    function resetQuiz() {
+      currentStep = 0; answers = {};
+      document.getElementById('quiz-section').classList.remove('hidden');
+      document.getElementById('result-section').classList.add('hidden');
+      renderQuestion();
+    }
+
+    renderQuestion();
+  </script>
+</body>
+</html>

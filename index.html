@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#7c3aed">
-  <meta name="description" content="DIY経験・工具の有無・希望の作業から難易度と必要な道具を無料診断。初心者でもできるDIYを提案。登録不要・完全無料でご利用いただけます。スマホ・PC対応。">
+  <meta name="description" content="DIY経験・工具の有無・希望の作業から難易度と必要な道具を無料診断。初心者でもできるDIYを提案。登録不要・完全無料でご利用いただけます。スマートフォン・PCどちらでも無料でお使いいただけます。">
   <link rel="canonical" href="https://appadaycreator.com/diy-advisor/">
 
   <!-- OGP -->
@@ -38,6 +38,8 @@
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZDPNYD2875"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZDPNYD2875',{send_page_view:false});</script>
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
@@ -46,6 +48,7 @@
   <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","s3t9vl8h3v");</script>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
 
   <script>
     window.onerror = function(msg, src, line, col, err) {
@@ -57,9 +60,7 @@
     });
   </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"このサービスは無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、完全無料・登録不要でご利用いただけます。"}},{"@type":"Question","name":"入力データはどこに保存されますか？","acceptedAnswer":{"@type":"Answer","text":"お使いのデバイス内にのみ保存されます。外部送信は行いません。"}},{"@type":"Question","name":"結果はどのくらい正確ですか？","acceptedAnswer":{"@type":"Answer","text":"あくまで参考情報です。重要な判断の際は専門家にご相談ください。"}},{"@type":"Question","name":"どのような人が使っていますか？","acceptedAnswer":{"@type":"Answer","text":"初心者から専門家まで、多くの方にご利用いただいています。特に決断が必要な場面で活躍します。"}},{"@type":"Question","name":"結果をシェアできますか？","acceptedAnswer":{"@type":"Answer","text":"はい、診断結果はスクリーンショットやURLで友人・家族とシェアできます。"}},{"@type":"Question","name":"有料プランはありますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ、すべての機能を完全無料でご利用いただけます。"}}]}</script>
-<script type="application/ld+json">
 
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -130,6 +131,18 @@ button, .btn, .btn-primary, .option-btn, [role="button"] { min-height: 48px; min
 .related-link{padding:10px;text-align:center;border:1px solid #ddd;border-radius:4px;text-decoration:none;color:#333;display:block;transition:background 0.15s;}
 .related-link:hover{background:#f5f5f5;}
 
+/* 診断結果フェードインアニメーション */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.fade-in{animation:fadeInUp 0.35s ease both;}
+.fade-in-d1{animation-delay:0.1s;}
+.fade-in-d2{animation-delay:0.2s;}
+.fade-in-d3{animation-delay:0.3s;}
+.fade-in-d4{animation-delay:0.4s;}
+
+/* FAQアコーディオン矢印トグル */
+.faq-arrow{display:inline-block;transition:transform 0.2s ease;}
+details[open] .faq-arrow{transform:rotate(180deg);}
+
 /* AdSense unfilled: collapse empty ad slots */
 ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!important;height:0!important}
 </style>
@@ -156,6 +169,13 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       </div>
     </div>
   </header>
+<div style="background:#4338ca;padding:5px 12px;text-align:right;font-size:.78rem"><a href="/blog/" style="color:#c7d2fe;text-decoration:none;font-weight:600">📖 コラム</a>&nbsp;｜&nbsp;<a href="/" style="color:#c7d2fe;text-decoration:none">ホーム</a></div>
+<!-- r21-breadcrumb -->
+<nav aria-label="パンくずリスト" style="background:#f8fafc;border-bottom:1px solid #e2e8f0;padding:5px 16px;font-size:.78rem;color:#6b7280;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">
+  <a href="/" style="color:#4f46e5;text-decoration:none">ホーム</a>
+  <span style="margin:0 .35rem;color:#9ca3af">›</span>
+  <span style="color:#374151">DIY難易度診断【無料】あなたのDIYスキルで何ができる？</span>
+</nav>
 
   <main id="main" role="main" class="max-w-2xl mx-auto px-4 py-8">
 
@@ -182,6 +202,36 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       </div>
     </div>
 
+    <!-- Goal Setting Section -->
+    <div id="goal-section" class="hidden">
+      <div class="bg-white rounded-2xl shadow p-6 mb-6">
+        <h2 class="text-xl font-bold text-purple-600 mb-4">🎯 目標設定・進捗追跡</h2>
+        <p class="text-sm text-gray-600 mb-4">このDIYプロジェクトの目標を設定し、進捗を記録できます。</p>
+        <div id="goal-error-message" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4 text-sm"></div>
+        <div class="space-y-3">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">プロジェクト名</label>
+            <input type="text" id="goal-name" placeholder="例: 壁紙張り替え（リビング）" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">目標完了日</label>
+            <input type="date" id="goal-deadline" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm" title="プロジェクトの目標完了日を選択してください（例: 2026年6月30日）" aria-label="目標完了日を入力。プロジェクトの目標完了日を選択してください。" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1">進捗率 (%)</label>
+            <div class="flex gap-2">
+              <input type="range" id="goal-progress" min="0" max="100" value="0" class="flex-1" title="プロジェクトの進捗率をスライダーで選択してください（0〜100%）" aria-label="進捗率。スライダーで0から100%の間で選択できます。" oninput="document.getElementById('goal-progress-display').textContent = this.value + '%'" />
+              <span id="goal-progress-display" class="text-sm font-bold text-purple-600 w-10">0%</span>
+            </div>
+          </div>
+          <button onclick="saveGoal()" class="w-full py-2 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition text-sm">
+            💾 目標を保存
+          </button>
+        </div>
+        <div id="goal-history" class="mt-4 pt-4 border-t border-gray-200"></div>
+      </div>
+    </div>
+
     <!-- Result -->
     <div id="result-section" class="hidden">
       <div class="bg-white rounded-2xl shadow p-6 mb-6">
@@ -189,30 +239,38 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         <div id="result-content"></div>
       </div>
 
-      <!-- Affiliate CTAs -->
-      <div class="bg-orange-50 border border-orange-200 rounded-2xl p-5 mb-4">
-        <h3 class="font-bold text-orange-800 mb-2">必要な工具をAmazonで探す</h3>
-        <p class="text-sm text-gray-600 mb-3">電動ドリル・サンダー・カッターなど、DIYに必要な工具を最安値でチェック。セット品がお得。</p>
-        <a href="https://www.amazon.co.jp/s?k=DIY%E5%B7%A5%E5%85%B7%E3%82%BB%E3%83%83%E3%83%88&tag=appadaycrea0f-22" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold rounded-xl transition js-track-affiliate" data-platform="Amazon" data-item-name="DIY工具セット" data-link-type="affiliate_link">
-          AmazonでDIY工具を見る
+      <!-- Affiliate CTAs (動的: 作業タイプ別リンク) -->
+      <div id="affiliate-tools-block" class="bg-orange-50 border border-orange-200 rounded-2xl p-5 mb-4">
+        <h3 class="font-bold text-orange-800 mb-2" id="affiliate-tools-title">必要な材料・工具をAmazonで探す</h3>
+        <p class="text-sm text-gray-600 mb-3" id="affiliate-tools-desc">今回の作業に必要な材料・工具を最安値でチェック。</p>
+        <a id="affiliate-tools-link" href="https://www.amazon.co.jp/s?k=DIY%E5%B7%A5%E5%85%B7%E3%82%BB%E3%83%83%E3%83%88&tag=appadaycrea0f-22" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold rounded-xl transition js-track-affiliate" data-platform="Amazon" data-item-name="DIY工具セット" data-link-type="affiliate_link">
+          Amazonで材料・工具を見る
         </a>
       </div>
 
       <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-5 mb-6">
         <h3 class="font-bold text-yellow-800 mb-2">DIYスクール・オンライン講座でスキルアップ</h3>
         <p class="text-sm text-gray-600 mb-3">プロの技術をオンラインで学べるDIYスクール。基礎から応用まで動画で学習できます。</p>
-        <a href="https://www.amazon.co.jp/s?k=DIY+工具+リフォーム&tag=appadaycrea0f-22" rel="nofollow" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-xl transition js-track-affiliate" data-platform="Amazon" data-item-name="DIY工具リフォーム" data-link-type="affiliate_link">
+        <a href="https://www.amazon.co.jp/s?k=DIY+工具+リフォーム&tag=appadaycrea0f-22" target="_blank" rel="noopener noreferrer" class="block w-full text-center py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-xl transition js-track-affiliate" data-platform="Amazon" data-item-name="DIY工具リフォーム" data-link-type="affiliate_link">
           DIYオンライン講座を見る
         </a>
       </div>
 
+      <div class="flex gap-2 mb-4">
+        <button onclick="window.print()" class="flex-1 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition text-sm">
+          🖨️ 印刷する
+        </button>
+        <button id="export-csv-btn" onclick="exportAsCSV()" class="flex-1 py-2 bg-teal-500 text-white rounded-lg font-semibold hover:bg-teal-600 transition text-sm">
+          📥 CSVダウンロード
+        </button>
+      </div>
       <button onclick="resetQuiz()" class="w-full py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition mb-6">別のDIYを診断する</button>
     </div>
 
     <!-- AdSense -->
     <div class="my-6 text-center">
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <script>try{(adsbygoogle = window.adsbygoogle || []).push({});}catch(e){}</script>
     </div>
 
     <!-- Cross-links -->
@@ -233,37 +291,109 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         </a>
       </div>
     </div>
-  </main>
+  
+<section aria-labelledby="faq-h" class="bg-white rounded-2xl shadow-md p-4 mb-4" style="max-width:740px;margin-left:auto;margin-right:auto">
+  
+<div style="background:#f0f7ff;border:1px solid #bfdbfe;border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0" id="tool-desc-box">
+  <h2 style="font-size:1.05rem;font-weight:800;color:#1e40af;margin:0 0 1rem">📋 このツールの詳細</h2>
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.8">「DIYリフォーム難易度診断」は、あなたの状況に合わせたアドバイスを提供する無料の診断・アドバイスツールです。</p>
+  <p style="color:#374151;margin:0 0 .75rem;line-height:1.8">いくつかの質問に答えるだけで、あなたに最適な提案や判断基準をわかりやすく提示します。</p>
+  <p style="color:#374151;margin:0;line-height:1.8">情報収集や比較検討の時間を大幅に短縮できるので、迷っているときの第一歩として活用いただけます。</p>
+</div>
+<div style="background:#f0f7ff;border:2px solid #bfdbfe;border-radius:12px;padding:1.5rem 1.75rem;margin:2rem 0">
+  <h2 style="font-size:1.1rem;font-weight:800;color:#1e3a5f;margin:0 0 1rem;padding-bottom:.75rem;border-bottom:2px solid #bfdbfe">DIYの始め方と工具選び：初心者向けプロジェクトと安全対策</h2>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">必須工具10選と揃える順番</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0 0 1rem">DIY初心者が最初に揃えるべき工具リストを優先順に紹介します。①計測テープ（3〜5.5m、1,500〜3,000円）：すべての作業の基本。②金づち（200〜400g、1,000〜3,000円）：釘打ち・解体に必須。③ドライバーセット（プラス#1/#2・マイナス各サイズ、2,000〜5,000円）：ネジ締めの基本。④電動ドライバー（インパクトドライバー）（5,000〜20,000円）：最も費用対効果が高い電動工具。⑤ノコギリ（手引き、2,000〜5,000円）：木材カットに使用。⑥水平器（1,500〜3,000円）：棚・フレームの水平確認に必須。⑦プライヤー/ペンチ（1,000〜2,500円）⑧カッターナイフ（200〜1,000円）⑨紙やすり（セット、500〜1,500円）⑩養生テープ（200〜500円）：塗装・保護に必須。合計予算15,000〜25,000円でひと通りのDIYが可能になります。</p>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">初心者向けDIYプロジェクト5選</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0 0 1rem">DIY入門として適したプロジェクトを難易度・費用とともに紹介します。①賃貸でもできる「壁に棚を設置」（難易度★☆☆、材料費5,000〜15,000円）：石膏ボードアンカーを使用した突っ張り棚や有孔ボード棚。②「ウッドペイント家具リメイク」（難易度★☆☆、材料費3,000〜8,000円）：水性ペンキでIKEAや既存家具を塗装。③「木材を使ったテーブル・コーヒーテーブル制作」（難易度★★☆、材料費8,000〜20,000円）：ホームセンターで木材カット後、塗装・脚取り付け。④「タイル・シールタイルを使ったキッチン壁装飾」（難易度★☆☆、材料費5,000〜10,000円）：貼って剥がせるシールタイルを使用。⑤「コンクリート鉢植え制作」（難易度★★☆、材料費3,000〜8,000円）。</p>
+  <h3 style="font-size:1rem;font-weight:700;color:#1e3a5f;margin:1.25rem 0 .5rem">DIYの安全対策と賃貸での制約確認</h3>
+  <p style="font-size:.9375rem;color:#374151;line-height:1.8;margin:0 0 1rem">DIYを楽しむために安全対策は欠かせません。保護具：電動工具使用時は保護メガネ（飛び散るおがくず・金属片から目を守る）・防塵マスク（木材切断時の粉じん）・作業用手袋を必ず着用してください。電動工具の使用前に取扱説明書を熟読し、充電式工具は使用前に充電状態を確認します。賃貸住宅でのDIYは「原状回復義務」に注意が必要で、壁に穴を開けるビス留め・床・壁の塗装変更は基本的に禁止です。「賃貸でもできるDIY」として石膏ボード対応のピンフック（穴径0.5mm程度）・突っ張り式の棚・マスキングテープ活用が人気です。退去時のトラブルを避けるため、作業前に管理会社・オーナーへの確認を強くお勧めします。</p>
+</div>
 
-  <div class="max-w-lg mx-auto px-4 mb-4">
-<section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:24px 16px;margin-top:16px;">
+<!-- r22-editorial -->
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:.75rem;padding:1.5rem;margin:1.5rem 0">
+  <h2 style="font-size:1.05rem;font-weight:800;color:#14532d;margin:0 0 1rem;border-left:4px solid #16a34a;padding-left:.75rem">住まい・家事の実態データ（総務省・国土交通省）</h2>
+  <p style="font-size:.88rem;color:#4b5563;margin:0 0 .75rem">総務省「住宅土地統計調査」・国土交通省データをもとに、住まいにかかる費用と維持管理のポイントを整理しました。</p>
+  <table style="width:100%;border-collapse:collapse;font-size:.83rem">
+    <thead>
+      <tr style="background:#bbf7d0">
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bbf7d0;color:#14532d">項目</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bbf7d0;color:#14532d">データ</th>
+        <th style="padding:.5rem .75rem;text-align:left;border:1px solid #bbf7d0;color:#14532d">出典</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#f0fdf4">
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-weight:600;color:#14532d">持ち家世帯の住宅ローン平均残高</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0"><strong>約1,600万円（2023年度・住宅金融支援機構調査参考）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-size:.78rem;color:#6b7280">住宅金融支援機構「フラット35利用者調査」</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-weight:600;color:#14532d">家事にかかる時間（有職女性・1日平均）</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0"><strong>約2.5時間（2021年社会生活基本調査）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-size:.78rem;color:#6b7280">総務省「社会生活基本調査」2021年</td>
+      </tr>
+      <tr style="background:#f0fdf4">
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-weight:600;color:#14532d">光熱費の月平均（二人以上世帯）</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0"><strong>電気代：約12,000〜15,000円 / ガス：約5,000〜7,000円</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-size:.78rem;color:#6b7280">総務省「家計調査」2023年（参考値）</td>
+      </tr>
+      <tr style="">
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-weight:600;color:#14532d">住宅の平均築年数（持ち家）</td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0"><strong>約32年（2018年時点）</strong></td>
+        <td style="padding:.5rem .75rem;border:1px solid #bbf7d0;font-size:.78rem;color:#6b7280">総務省「住宅土地統計調査」2018年</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.78rem;color:#6b7280;margin:.5rem 0 0">※ 記載データは各出典の公表時点の情報です。最新情報は各公的機関の公式サイトをご確認ください。</p>
+</div>
+<!-- r20-tool-links -->
+<div id="tool-disclaimer" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-size:.875rem">
+  <p style="font-weight:700;color:#374151;margin:0 0 .5rem">⚠️ 計算結果の活用にあたって</p>
+  <p style="color:#4b5563;margin:0 0 .5rem;line-height:1.75">計算結果は参考値です。入力値や前提条件によって結果が変わります。重要な判断の際は最新の公式情報をご確認ください。</p>
+  <ul style="margin:0;padding-left:1.25rem;color:#4b5563;line-height:1.9"><li><a href="https://www.caa.go.jp/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5;font-size:.85rem">消費者庁「くらしの安心ガイド」</a></li></ul>
+</div>
+<h2 id="faq-h" style="font-size:1.05rem;font-weight:700;margin-bottom:12px;border-left:4px solid #4f46e5;padding-left:10px;">よくある質問</h2>
+  <dl style="line-height:1.8;">
+    <dt style="font-weight:600;margin-top:12px;">Q: 診断結果はどう活用すればいいですか？</dt>
+    <dd style="margin-left:16px;color:#374151;">DIY難易度あなたのDIYスキルで何に関する判断・選択の参考情報としてご活用ください。条件を変えて複数回試すことで、より広い視点で検討できます。</dd>
+    <dt style="font-weight:600;margin-top:12px;">Q: 診断を繰り返し使えますか？</dt>
+    <dd style="margin-left:16px;color:#374151;">はい、条件を変えて何度でも診断いただけます。異なるシナリオで結果を比較することで、より確かな判断材料になります。</dd>
+    <dt style="font-weight:600;margin-top:12px;">Q: 入力したデータはどこに保存されますか？</dt>
+    <dd style="margin-left:16px;color:#374151;">すべての処理はブラウザ内で完結します。入力データがサーバーに送信されることはなく、プライバシーが守られます。</dd>
+  </dl>
+</section>
+</main>
+
+  <div class="max-w-2xl mx-auto px-4 mb-4">
+<section style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:24px 16px;margin-top:16px;max-width:720px;margin-left:auto;margin-right:auto;">
   <h2 style="font-size:16px;font-weight:700;color:#1e293b;margin:0 0 16px;text-align:center;">❓ よくある質問（FAQ）</h2>
   <div style="max-width:680px;margin:0 auto;">
     <details style="border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;overflow:hidden;" open>
-      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 電気・水道工事をDIYでできますか？ <span>▼</span></summary>
+      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 電気・水道工事をDIYでできますか？ <span class="faq-arrow">▼</span></summary>
       <p style="padding:12px 16px;font-size:13px;color:#475569;margin:0;background:#f8fafc;">いいえ。電気工事は電気工事士資格、水道工事は給水装置工事主任技術者資格が法律で必須です。無資格施工は違反となり、火災・漏水リスクもあります。プロにご依頼ください。</p>
     </details>
-    <details style="border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;overflow:hidden;">
-      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 初心者でも壁紙張り替えはできますか？ <span>▼</span></summary>
+    <details style="border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;overflow:hidden;transition:all 0.2s ease;">
+      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 初心者でも壁紙張り替えはできますか？ <span class="faq-arrow">▼</span></summary>
       <p style="padding:12px 16px;font-size:13px;color:#475569;margin:0;background:#f8fafc;">はい。壁紙張り替えは難易度が低く、初心者向けです。古い壁紙をきれいに剥がし、採寸・カット・貼り付けを丁寧に行えば、十分きれいに仕上がります。</p>
     </details>
-    <details style="border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;overflow:hidden;">
-      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 電動工具がなくてもDIYはできますか？ <span>▼</span></summary>
+    <details style="border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;overflow:hidden;transition:all 0.2s ease;">
+      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 電動工具がなくてもDIYはできますか？ <span class="faq-arrow">▼</span></summary>
       <p style="padding:12px 16px;font-size:13px;color:#475569;margin:0;background:#f8fafc;">はい。ペンキ塗り・壁紙張り替えなどは手工具だけで十分です。木工や床工事は電動工具があると効率的ですが、ホームセンターのレンタルサービスも活用できます。</p>
     </details>
-    <details style="border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;overflow:hidden;">
-      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 入力したデータは保存されますか？ <span>▼</span></summary>
+    <details style="border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;overflow:hidden;transition:all 0.2s ease;">
+      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 入力したデータは保存されますか？ <span class="faq-arrow">▼</span></summary>
       <p style="padding:12px 16px;font-size:13px;color:#475569;margin:0;background:#f8fafc;">ご入力内容はお使いのブラウザに保存され、サーバーへは送信・保存されません。プライバシーは完全に守られます。</p>
     </details>
-    <details style="border:1px solid #e2e8f0;border-rgba:8px;margin-bottom:8px;overflow:hidden;">
-      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 何回でも無料で使えますか？ <span>▼</span></summary>
+    <details style="border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;overflow:hidden;transition:all 0.2s ease;">
+      <summary style="padding:12px 16px;cursor:pointer;font-size:14px;font-weight:600;color:#334155;background:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;">Q. 何回でも無料で使えますか？ <span class="faq-arrow">▼</span></summary>
       <p style="padding:12px 16px;font-size:13px;color:#475569;margin:0;background:#f8fafc;">はい。登録・ログイン不要で、何度でも完全無料でご利用いただけます。複数のDIY作業を比較診断できます。</p>
     </details>
   </div>
 </section>
 </div>
 
-<div class="max-w-lg mx-auto px-4"><section  style="background:#f0f9ff;border:1px solid #bae6fd;padding:16px;text-align:center;font-size:12px;color:#0369a1;border-radius:14px;margin-bottom:16px;">
+<div class="max-w-2xl mx-auto px-4"><section  style="background:#f0f9ff;border:1px solid #bae6fd;padding:16px;text-align:center;font-size:12px;color:#0369a1;border-radius:14px;margin-bottom:16px;">
   <p style="margin:0 0 4px;font-weight:600;">📧 お問い合わせ</p>
   <p style="margin:0;">ご意見・ご要望・不具合のご報告は <a href="mailto:appadaycreator@gmail.com" style="color:#0369a1;font-weight:bold;">appadaycreator@gmail.com</a> または <a href="contact.html" style="color:#0369a1;">お問い合わせフォーム</a> へ</p>
 </section></div>
@@ -273,31 +403,36 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         id: 'task',
         text: 'やりたいDIY作業を教えてください',
         type: 'radio',
-        options: ['壁紙の貼り替え', '床材・フローリング交換', '棚・家具の製作', 'ペンキ・塗装', '電気・水回りの修理']
+        options: ['壁紙の貼り替え', '床材・フローリング交換', '棚・家具の製作', 'ペンキ・塗装', '電気・水回りの修理'],
+        hints: ['難易度が低く初心者向けです', '難易度が高い、プロ判定もある', '木工スキルで難易度が大きく変動', '初心者OKの作業です', '法的制限あり、プロ推奨']
       },
       {
         id: 'experience',
         text: 'DIYの経験はどのくらいありますか？',
         type: 'radio',
-        options: ['全くない（初めて）', '少しある（小物製作程度）', 'そこそこある（木工・塗装経験）', '得意（工具を日常的に使う）']
+        options: ['全くない（初めて）', '少しある（小物製作程度）', 'そこそこある（木工・塗装経験）', '得意（工具を日常的に使う）'],
+        hints: ['難易度は +0 で計算', '難易度が -0.5 程度下がります', '難易度が -1.0 程度下がります', '難易度が -1.5 程度下がります']
       },
       {
         id: 'tools',
         text: '現在持っている工具は？',
         type: 'radio',
-        options: ['工具は何も持っていない', 'ドライバー・ハンマーなど基本的な工具のみ', '電動ドリル・丸鋸など電動工具あり']
+        options: ['工具は何も持っていない', 'ドライバー・ハンマーなど基本的な工具のみ', '電動ドリル・丸鋸など電動工具あり'],
+        hints: ['レンタルサービスをご案内します', '基本作業は可能です', '難易度の低い作業を効率化できます']
       },
       {
         id: 'budget',
         text: 'DIYにかけられる予算はいくらですか？',
         type: 'radio',
-        options: ['3万円以下', '3〜10万円', '10万円以上']
+        options: ['3万円以下', '3〜10万円', '10万円以上'],
+        hints: ['簡単な作業向けの予算', '中規模DIY向け', '本格的なDIYが可能な予算']
       },
       {
         id: 'purpose',
         text: 'DIYの目的は何ですか？',
         type: 'radio',
-        options: ['業者費用を節約したい', '趣味・ものづくりを楽しみたい', '自分好みにカスタマイズしたい']
+        options: ['業者費用を節約したい', '趣味・ものづくりを楽しみたい', '自分好みにカスタマイズしたい'],
+        hints: ['コスト効果が診断ポイント', '手間を楽しむ観点で判定', 'カスタマイズ性を重視']
       }
     ];
 
@@ -307,40 +442,149 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         color: 'green',
         tools: ['カッター・ハサミ', 'ヘラ（スクレーパー）', 'ローラー・刷毛', 'メジャー', '脚立'],
         steps: ['古い壁紙を剥がす（霧吹きで湿らせると剥がしやすい）', '壁の補修（穴埋め・ヤスリがけ）', '採寸してカット', 'のり付きシートまたは壁紙用のりで貼り付け', '空気を抜きながら圧着、余分をカット'],
-        caution: '角や継ぎ目は丁寧に。のりのはみ出しをすぐ拭き取ることがポイント。'
+        caution: '角や継ぎ目は丁寧に。のりのはみ出しをすぐ拭き取ることがポイント。',
+        amazonKeyword: '壁紙 のりつき DIY セット',
+        estimatedProCost: '6万〜15万円',
+        estimatedMaterialCost: '5千〜2万円',
+        savingsTip: '壁紙張り替えをプロに頼むと6万〜15万円かかりますが、自分でやれば材料費5千〜2万円程度で済みます。'
       },
       '床材・フローリング交換': {
         difficulty: 3, label: '要注意',
         color: 'yellow',
         tools: ['丸鋸またはのこぎり', '釘打ち機またはタッカー', 'バール', 'メジャー', 'ゴム槌', '水平器'],
         steps: ['既存の床材を撤去（バールで剥がす）', '下地の状態確認・補修', '床材のレイアウト計画・採寸', 'フローリング材の切断・加工', '釘またはボンドで固定'],
-        caution: '床下地の傷みがある場合は業者確認を推奨。防音性に影響するので集合住宅は管理規約要確認。'
+        caution: '床下地の傷みがある場合は業者確認を推奨。防音性に影響するので集合住宅は管理規約要確認。',
+        amazonKeyword: 'フローリング材 DIY 置くだけ',
+        estimatedProCost: '15万〜40万円（6畳）',
+        estimatedMaterialCost: '3万〜10万円',
+        savingsTip: '6畳の床材交換をプロに頼むと15万〜40万円ほどかかります。DIYなら材料費3万〜10万円程度で大幅節約できます。'
       },
       '棚・家具の製作': {
         difficulty: 2, label: '初心者OK',
         color: 'green',
         tools: ['電動ドリル・ドライバー', 'のこぎり（または丸鋸）', 'メジャー・さしがね', 'サンドペーパー', 'クランプ'],
         steps: ['設計図・寸法の決定', '木材の購入（ホームセンターでカットサービス利用可）', '組み立て・接合（ビス・ダボ）', '表面仕上げ（サンディング）', '塗装または仕上げ剤の塗布'],
-        caution: 'ホームセンターの木材カットサービスを利用すれば丸鋸不要。設計図を事前に作成すると失敗が減る。'
+        caution: 'ホームセンターの木材カットサービスを利用すれば丸鋸不要。設計図を事前に作成すると失敗が減る。',
+        amazonKeyword: '木材 棚板 DIY 2x4',
+        estimatedProCost: '3万〜10万円（棚1台）',
+        estimatedMaterialCost: '3千〜1万5千円',
+        savingsTip: '棚をオーダーすると3万〜10万円ほどかかります。DIYなら材料費3千〜1万5千円で、サイズも自由に決められます。'
       },
       'ペンキ・塗装': {
         difficulty: 1, label: '初心者OK',
         color: 'green',
         tools: ['ローラー・刷毛', '養生テープ・マスカー', 'トレイ・バケツ', 'ヤスリ（下地処理用）', '脚立'],
         steps: ['下地処理（汚れ落とし・補修）', '養生テープで保護', 'プライマー（下塗り）塗布', 'ペンキを2〜3回重ね塗り', '養生を丁寧に剥がして完成'],
-        caution: '換気を十分に行うこと。マスクと手袋を着用。乾燥時間を守って重ね塗りすることで仕上がりが格段によくなる。'
+        caution: '換気を十分に行うこと。マスクと手袋を着用。乾燥時間を守って重ね塗りすることで仕上がりが格段によくなる。',
+        amazonKeyword: '水性塗料 ローラー 養生テープ DIY セット',
+        estimatedProCost: '4万〜12万円（1部屋）',
+        estimatedMaterialCost: '3千〜8千円',
+        savingsTip: '1部屋の塗装をプロに依頼すると4万〜12万円かかります。DIYなら塗料代3千〜8千円と道具代のみで実現できます。'
       },
       '電気・水回りの修理': {
         difficulty: 5, label: 'プロ推奨',
         color: 'red',
         tools: ['資格が必要なため工具リストより専門家へ相談推奨'],
         steps: ['電気工事は電気工事士資格が必要', '水道工事は給水装置工事主任技術者が必要', 'DIYで行うと法律違反・保険適用外になる可能性あり', '専門業者への依頼を強く推奨'],
-        caution: '電気・水回りのDIYは法律で資格が必要な作業があります。感電・水漏れ・火災のリスクもあり、業者への依頼を推奨します。'
+        caution: '電気・水回りのDIYは法律で資格が必要な作業があります。感電・水漏れ・火災のリスクもあり、業者への依頼を推奨します。',
+        amazonKeyword: null,
+        estimatedProCost: null,
+        estimatedMaterialCost: null,
+        savingsTip: null
       }
     };
 
     let currentStep = 0;
     let answers = {};
+    let diagnosisHistory = [];
+    let chart = null;
+
+    // localStorage管理関数
+    function loadHistory() {
+      const saved = localStorage.getItem('diy-advisor-history');
+      diagnosisHistory = saved ? JSON.parse(saved) : [];
+      return diagnosisHistory;
+    }
+
+    function saveDiagnosis(diagnosis) {
+      diagnosisHistory.unshift(diagnosis);
+      if (diagnosisHistory.length > 20) diagnosisHistory.pop();
+      localStorage.setItem('diy-advisor-history', JSON.stringify(diagnosisHistory));
+    }
+
+    function loadPreviousAnswers() {
+      const saved = localStorage.getItem('diy-advisor-answers');
+      return saved ? JSON.parse(saved) : null;
+    }
+
+    function savePreviousAnswers(ans) {
+      localStorage.setItem('diy-advisor-answers', JSON.stringify(ans));
+    }
+
+    function loadGoals() {
+      const saved = localStorage.getItem('diy-advisor-goals');
+      return saved ? JSON.parse(saved) : [];
+    }
+
+    function saveGoal() {
+      const name = document.getElementById('goal-name').value;
+      const deadline = document.getElementById('goal-deadline').value;
+      const progress = parseInt(document.getElementById('goal-progress').value);
+      const errorEl = document.getElementById('goal-error-message');
+
+      let errorMsg = '';
+      if (!name) errorMsg += 'プロジェクト名を入力してください。';
+      if (!deadline) errorMsg += (errorMsg ? ' ' : '') + '目標完了日を選択してください。';
+
+      if (errorMsg) {
+        errorEl.textContent = errorMsg;
+        errorEl.classList.remove('hidden');
+        return;
+      }
+
+      errorEl.classList.add('hidden');
+      const goals = loadGoals();
+      const goal = { id: Date.now(), name, deadline, progress, created: new Date().toLocaleString('ja-JP') };
+      goals.unshift(goal);
+      if (goals.length > 10) goals.pop();
+      localStorage.setItem('diy-advisor-goals', JSON.stringify(goals));
+      document.getElementById('goal-name').value = '';
+      document.getElementById('goal-deadline').value = '';
+      document.getElementById('goal-progress').value = 0;
+      document.getElementById('goal-progress-display').textContent = '0%';
+      displayGoals();
+    }
+
+    function deleteGoal(id) {
+      const goals = loadGoals().filter(g => g.id !== id);
+      localStorage.setItem('diy-advisor-goals', JSON.stringify(goals));
+      displayGoals();
+    }
+
+    function displayGoals() {
+      const goals = loadGoals();
+      const container = document.getElementById('goal-history');
+      if (goals.length === 0) {
+        container.innerHTML = '<p class="text-xs text-gray-500">保存された目標はまだありません</p>';
+        return;
+      }
+      container.innerHTML = goals.map(g => {
+        const daysLeft = Math.ceil((new Date(g.deadline) - new Date()) / (1000 * 60 * 60 * 24));
+        return \`<div class="bg-gray-50 p-3 rounded-lg mb-2 text-sm">
+          <div class="flex justify-between items-start">
+            <div>
+              <p class="font-semibold text-gray-700">\${g.name}</p>
+              <p class="text-xs text-gray-500">作成: \${g.created} | 残り: \${daysLeft}日</p>
+            </div>
+            <button onclick="deleteGoal(\${g.id})" class="text-red-500 text-xs hover:text-red-700">削除</button>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+            <div class="bg-green-500 h-2 rounded-full" style="width: \${g.progress}%"></div>
+          </div>
+          <p class="text-xs text-gray-600 mt-1">\${g.progress}% 完了</p>
+        </div>\`;
+      }).join('');
+    }
 
     function renderQuestion() {
       const q = questions[currentStep];
@@ -350,12 +594,16 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       document.getElementById('next-btn').textContent = currentStep === questions.length - 1 ? '診断する' : '次へ';
 
       let html = `<p class="font-semibold text-gray-800 mb-4">${q.text}</p><div class="space-y-2">`;
-      q.options.forEach(opt => {
+      q.options.forEach((opt, idx) => {
         const checked = answers[q.id] === opt ? 'checked' : '';
         const ariaLabel = `${q.text}：${opt}を選択`;
-        html += `<label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-orange-400 transition has-[:checked]:border-orange-500 has-[:checked]:bg-orange-50">
-          <input type="radio" name="${q.id}" value="${opt}" ${checked} class="accent-orange-600" aria-label="${ariaLabel}"> <span class="text-sm">${opt}</span>
-        </label>`;
+        const hint = q.hints && q.hints[idx] ? `<p class="text-xs text-gray-500 mt-1 ml-7">💡 ${q.hints[idx]}</p>` : '';
+        html += `<div>
+          <label class="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:border-orange-400 transition has-[:checked]:border-orange-500 has-[:checked]:bg-orange-50">
+            <input type="radio" name="${q.id}" value="${opt}" ${checked} class="accent-orange-600" aria-label="${ariaLabel}"> <span class="text-sm">${opt}</span>
+          </label>
+          ${hint}
+        </div>`;
       });
       html += '</div>';
       document.getElementById('question-area').innerHTML = html;
@@ -365,11 +613,17 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       const el = document.querySelector(`input[name="${questions[currentStep].id}"]:checked`);
       if (!el) return false;
       answers[questions[currentStep].id] = el.value;
+      savePreviousAnswers(answers);
       return true;
     }
 
     function nextStep() {
       if (!saveAnswer()) { alert('選択してください'); return; }
+      // 電気・水回りは法的制限があるため即座に結果へスキップ
+      if (currentStep === 0 && answers.task === '電気・水回りの修理') {
+        showResult();
+        return;
+      }
       if (currentStep < questions.length - 1) { currentStep++; renderQuestion(); }
       else showResult();
     }
@@ -380,7 +634,14 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
 
     function showResult() {
       document.getElementById('quiz-section').classList.add('hidden');
-      document.getElementById('result-section').classList.remove('hidden');
+      const resultSection = document.getElementById('result-section');
+      const goalSection = document.getElementById('goal-section');
+      resultSection.classList.remove('hidden');
+      resultSection.classList.add('fade-in');
+      goalSection.classList.remove('hidden');
+      goalSection.classList.add('fade-in');
+      document.getElementById('goal-name').value = answers.task || '';
+      displayGoals();
       window.scrollTo(0, 0);
 
       const data = taskData[answers.task] || taskData['棚・家具の製作'];
@@ -388,29 +649,72 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
       const exp = expBonus[answers.experience] || 0;
       const adjustedDiff = Math.max(1, data.difficulty - Math.floor(exp / 2));
 
-      const colorMap = { green: 'green', yellow: 'yellow', red: 'red' };
+      // 診断結果をhistoryに保存
+      const diagnosis = {
+        timestamp: new Date().toLocaleString('ja-JP'),
+        task: answers.task,
+        difficulty: adjustedDiff,
+        experience: answers.experience,
+        tools: answers.tools,
+        budget: answers.budget
+      };
+      saveDiagnosis(diagnosis);
+
       const bgMap = { green: 'bg-green-50 border-green-400 text-green-800', yellow: 'bg-yellow-50 border-yellow-400 text-yellow-800', red: 'bg-red-50 border-red-400 text-red-800' };
 
       const stars = '★'.repeat(adjustedDiff) + '☆'.repeat(5 - adjustedDiff);
 
-      const resultText = `DIY作業「${answers.task}」\n難易度：${data.label}（${stars}）\nDIY経験：${answers.experience}\n必要工具：${data.tools.join('、')}\n\nhttps://appadaycreator.com/diy-advisor/`;
+      const resultText = `DIY作業「${answers.task}」\n難易度：${data.label}（${stars}）\nDIY経験：${answers.experience || ''}\n必要工具：${data.tools.join('、')}\n\nhttps://appadaycreator.com/diy-advisor/`;
 
-      // 難易度の根拠説明テキスト生成
-      const expLabel = answers.experience;
+      // 難易度の根拠説明テキスト
+      const expLabel = answers.experience || '';
       let scoreExplanation = '';
       if (exp > 0) {
         scoreExplanation = `<p class="text-xs text-gray-600 mt-2">💡 あなたの「${expLabel}」という経験から、基本難易度から${Math.floor(exp / 2)}段階下げて判定しました</p>`;
       }
 
-      // ツールのレンタル推奨判定
+      // ツールのレンタル推奨
       let rentalInfo = '';
       const toolsStatus = answers.tools;
       if (adjustedDiff <= 2 && toolsStatus === '工具は何も持っていない') {
         rentalInfo = `
-          <div class="bg-blue-50 border border-blue-300 rounded-xl p-3 mt-4 mb-4">
+          <div class="bg-blue-50 border border-blue-300 rounded-xl p-3 mt-4 mb-4 fade-in fade-in-d2">
             <p class="text-sm font-semibold text-blue-800 mb-2">💡 工具をお持ちでない方へ</p>
             <p class="text-sm text-blue-700 mb-2">初心者向けのDIYは工具レンタルがお得です。</p>
             <p class="text-xs text-blue-600">🏪 カインズ・コーナン等で丸鋸は¥500-1,000/日でレンタル可能。1回のDIYなら購入より安くつきます。</p>
+          </div>
+        `;
+      }
+
+      // 予算・節約コスト情報（P1-1: budgetを結果に反映）
+      let budgetInfo = '';
+      if (data.savingsTip && answers.purpose === '業者費用を節約したい') {
+        budgetInfo = `
+          <div class="bg-emerald-50 border border-emerald-300 rounded-xl p-3 mt-3 mb-4 fade-in fade-in-d3">
+            <p class="text-sm font-semibold text-emerald-800 mb-1">💰 節約効果シミュレーション</p>
+            <p class="text-sm text-emerald-700">${data.savingsTip}</p>
+            ${answers.budget === '3万円以下' && adjustedDiff >= 3 ? '<p class="text-xs text-orange-600 mt-2 font-semibold">⚠️ 予算3万円以下ではやや厳しい可能性があります。工具レンタルや材料の分割購入を検討しましょう。</p>' : ''}
+          </div>
+        `;
+      } else if (answers.budget === '3万円以下' && adjustedDiff >= 3) {
+        budgetInfo = `
+          <div class="bg-orange-50 border border-orange-300 rounded-xl p-3 mt-3 mb-4 fade-in fade-in-d3">
+            <p class="text-sm font-semibold text-orange-800 mb-1">⚠️ 予算に注意</p>
+            <p class="text-sm text-orange-700">この作業は工具・材料費で3万円を超える場合があります。レンタルサービスや分割購入でコストを抑えましょう。</p>
+          </div>
+        `;
+      } else if (answers.purpose === '趣味・ものづくりを楽しみたい') {
+        budgetInfo = `
+          <div class="bg-purple-50 border border-purple-300 rounded-xl p-3 mt-3 mb-4 fade-in fade-in-d3">
+            <p class="text-sm font-semibold text-purple-800 mb-1">🎨 ものづくりを楽しむコツ</p>
+            <p class="text-sm text-purple-700">完成度より「プロセスを楽しむ」気持ちが大切です。仕上がりに多少の誤差があっても愛着が生まれます。SNSで過程を記録しながら進めるとモチベーションが続きます。</p>
+          </div>
+        `;
+      } else if (answers.purpose === '自分好みにカスタマイズしたい') {
+        budgetInfo = `
+          <div class="bg-indigo-50 border border-indigo-300 rounded-xl p-3 mt-3 mb-4 fade-in fade-in-d3">
+            <p class="text-sm font-semibold text-indigo-800 mb-1">✨ カスタマイズを成功させるコツ</p>
+            <p class="text-sm text-indigo-700">事前にサイズ・色・素材のイメージ画像（ピンタレストなど）を集めておくと失敗が減ります。ホームセンターのスタッフに相談するのもおすすめです。</p>
           </div>
         `;
       }
@@ -430,54 +734,205 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
           const originalText = btn.textContent;
           btn.textContent = '✓ コピーしました！';
           setTimeout(() => { btn.textContent = originalText; }, 2000);
-        }).catch(err => alert('コピーに失敗しました'));
+        }).catch(() => alert('コピーに失敗しました'));
+      }
+
+      const diffLevelDisplay = \`\${adjustedDiff}/5\`;
+      const colorTextClass = data.color === 'green' ? 'text-green-700' : data.color === 'yellow' ? 'text-yellow-700' : 'text-red-700';
+      const stepBgClass = data.color === 'green' ? 'bg-green-500' : data.color === 'yellow' ? 'bg-yellow-500' : 'bg-red-500';
+      const toolBgClass = data.color === 'green' ? 'bg-green-50 border-l-4 border-green-400' : data.color === 'yellow' ? 'bg-yellow-50 border-l-4 border-yellow-400' : 'bg-red-50 border-l-4 border-red-400';
+
+      // Amazonアフィリエイトリンクを作業タイプ別に更新（P1-2）
+      const toolsBlock = document.getElementById('affiliate-tools-block');
+      const toolsLink = document.getElementById('affiliate-tools-link');
+      if (data.amazonKeyword && toolsBlock && toolsLink) {
+        toolsBlock.style.display = '';
+        const encoded = encodeURIComponent(data.amazonKeyword);
+        toolsLink.href = `https://www.amazon.co.jp/s?k=${encoded}&tag=appadaycrea0f-22`;
+        toolsLink.dataset.itemName = data.amazonKeyword;
+        document.getElementById('affiliate-tools-title').textContent = `「${answers.task}」の材料・工具をAmazonで探す`;
+        document.getElementById('affiliate-tools-desc').textContent = `今回の作業に必要な材料・道具を最安値でチェック。セット品がお得です。`;
+      } else if (toolsBlock) {
+        // 電気・水回りはAmazon CTA非表示
+        toolsBlock.style.display = 'none';
+      }
+
+      // グラフ表示エリアHTMLを準備
+      const chartHtml = \`
+        <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 mb-4 fade-in">
+          <h3 class="font-bold text-indigo-800 mb-3">📊 難易度・予算分析</h3>
+          <canvas id="diy-difficulty-chart" style="max-height: 300px;"></canvas>
+          <p class="text-xs text-gray-600 mt-3">💡 あなたの経験レベルに基づいて調整された難易度を表示しています</p>
+        </div>
+      \`;
+
+      // グラフ描画関数
+      function renderChart() {
+        setTimeout(() => {
+          const ctx = document.getElementById('diy-difficulty-chart');
+          if (ctx && typeof Chart !== 'undefined') {
+            if (chart) chart.destroy();
+            const estimatedCost = data.estimatedMaterialCost || '情報なし';
+            const maxCost = adjustedDiff >= 4 ? 30 : adjustedDiff >= 3 ? 20 : 15;
+
+            chart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: ['基本難易度', 'あなたの\n難易度'],
+                datasets: [{
+                  label: '難易度スコア (5段階)',
+                  data: [data.difficulty, adjustedDiff],
+                  backgroundColor: [
+                    data.color === 'green' ? '#10b981' : data.color === 'yellow' ? '#eab308' : '#ef4444',
+                    data.color === 'green' ? '#6ee7b7' : data.color === 'yellow' ? '#fcd34d' : '#fca5a5'
+                  ],
+                  borderRadius: 6,
+                  borderSkipped: false
+                }]
+              },
+              options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                  x: { min: 0, max: 5, ticks: { callback: v => v } },
+                  y: { ticks: { font: { size: 12 } } }
+                },
+                plugins: {
+                  legend: { display: false }
+                }
+              }
+            });
+          }
+        }, 100);
+      }
+
+      // 電気・水回りの場合は専用レイアウト
+      if (answers.task === '電気・水回りの修理') {
+        document.getElementById('result-content').innerHTML = \`
+          <div class="border-l-4 rounded-xl p-4 mb-4 \${bgMap[data.color]} fade-in">
+            <p class="text-sm font-semibold mb-1">⚠️ DIY不可 — 法的制限あり</p>
+            <p class="text-3xl font-bold">プロ推奨</p>
+            <p class="text-lg mt-1">★★★★★</p>
+            <p class="text-sm text-red-700 font-semibold mt-2">レベル 5/5（DIY不可）</p>
+          </div>
+          <div class="bg-red-50 border border-red-300 rounded-xl p-4 mb-4 fade-in fade-in-d1">
+            <p class="text-sm font-semibold text-red-800 mb-2">🚫 DIYが法律で禁止されている理由</p>
+            <ul class="space-y-1 text-sm text-red-700">
+              <li>⚡ 電気工事 → 電気工事士資格が法律で必須</li>
+              <li>🔧 水道工事 → 給水装置工事主任技術者資格が必須</li>
+              <li>🔥 無資格施工 → 火災・感電・水漏れのリスク＋法律違反</li>
+              <li>🏠 保険 → 無資格DIYは住宅保険の適用外になる場合あり</li>
+            </ul>
+          </div>
+          <div class="bg-amber-50 border border-amber-300 rounded-xl p-3 mb-4 fade-in fade-in-d2">
+            <p class="text-sm font-semibold text-amber-800 mb-1">📞 業者への相談をおすすめします</p>
+            <p class="text-sm text-amber-700">地域の電気工事店・水道工事店へ相談することで、安全かつ正確に施工してもらえます。複数社から見積もりを取ることでコストを抑えられます。</p>
+          </div>
+          <div class="flex gap-2 flex-col sm:flex-row fade-in fade-in-d3">
+            <button onclick="resetQuiz()" style="flex:1;display:block;text-align:center;background:#ea580c;color:white;padding:10px;border-radius:8px;font-size:13px;font-weight:bold;border:none;cursor:pointer;">
+              🔄 他のDIYを診断する
+            </button>
+            <a href="https://line.me/R/share?text=\${encodeURIComponent('電気・水回り工事はDIY不可！資格が必要です。DIY難易度診断→ https://appadaycreator.com/diy-advisor/')}" target="_blank" rel="noopener"
+               style="flex:1;display:block;text-align:center;background:#06C755;color:white;padding:10px;border-radius:8px;font-size:13px;font-weight:bold;text-decoration:none;">
+              LINEでシェア
+            </a>
+          </div>\`;
+        return;
       }
 
       document.getElementById('result-content').innerHTML = \`
-        <div class="border-l-4 rounded-xl p-4 mb-4 \${bgMap[data.color]}">
+        <div class="border-l-4 rounded-xl p-4 mb-4 \${bgMap[data.color]} fade-in">
           <p class="text-sm font-semibold mb-1">難易度判定</p>
           <p class="text-3xl font-bold">\${data.label}</p>
           <p class="text-lg mt-1">\${stars}</p>
+          <p class="text-sm \${colorTextClass} font-semibold mt-2">レベル \${diffLevelDisplay}</p>
           \${scoreExplanation}
         </div>
-        <h3 class="font-bold text-gray-700 mb-2">必要な工具リスト</h3>
-        <ul class="space-y-1 mb-4">
-          \${data.tools.map(t => \`<li class="flex items-center gap-2 text-sm p-2 bg-gray-50 rounded-lg"><span class="text-orange-500">✓</span>\${t}</li>\`).join('')}
+        \${chartHtml}
+        \${budgetInfo}
+        <h3 class="font-bold \${colorTextClass} mb-2 fade-in fade-in-d1">必要な工具リスト</h3>
+        <ul class="space-y-1 mb-4 fade-in fade-in-d1">
+          \${data.tools.map(t => \`<li class="flex items-center gap-2 text-sm p-2 \${toolBgClass} rounded-lg"><span class="\${colorTextClass} font-bold">✓</span>\${t}</li>\`).join('')}
         </ul>
         \${rentalInfo}
-        <h3 class="font-bold text-gray-700 mb-2">基本手順</h3>
-        <ol class="space-y-2 mb-4">
-          \${data.steps.map((s, i) => \`<li class="flex gap-3 items-start text-sm"><span class="bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">\${i+1}</span><span>\${s}</span></li>\`).join('')}
+        <h3 class="font-bold \${colorTextClass} mb-2 fade-in fade-in-d2">基本手順</h3>
+        <ol class="space-y-2 mb-4 fade-in fade-in-d2">
+          \${data.steps.map((s, i) => \`<li class="flex gap-3 items-start text-sm"><span class="\${stepBgClass} text-white text-xs w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">\${i+1}</span><span>\${s}</span></li>\`).join('')}
         </ol>
-        <div class="bg-amber-50 border border-amber-300 rounded-xl p-3 mb-4">
+        <div class="bg-amber-50 border border-amber-300 rounded-xl p-3 mb-4 fade-in fade-in-d3">
           <p class="text-sm font-semibold text-amber-800 mb-1">注意ポイント</p>
           <p class="text-sm text-amber-700">\${data.caution}</p>
         </div>
-        <div class="flex gap-2 flex-col sm:flex-row">
+        <div class="flex gap-2 flex-col sm:flex-row fade-in fade-in-d4">
           <button onclick="copyResult()" data-copy-btn style="flex:1;display:block;text-align:center;background:#6b7280;color:white;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;border:none;cursor:pointer;">
             📋 結果をコピー
           </button>
           <a href="https://line.me/R/share?text=\${encodeURIComponent(resultText)}" target="_blank" rel="noopener"
              style="flex:1;display:block;text-align:center;background:#06C755;color:white;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;text-decoration:none;">
-            LINEで診断結果をシェア
+            LINEでシェア
           </a>
           <a href="https://twitter.com/intent/tweet?text=\${encodeURIComponent(resultText)}&via=appadaycreator" target="_blank" rel="noopener"
              style="flex:1;display:block;text-align:center;background:#000;color:white;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;text-decoration:none;">
-            Xで診断結果をシェア
+            Xでシェア
+          </a>
+          <a href="https://wa.me/?text=\${encodeURIComponent(resultText)}" target="_blank" rel="noopener"
+             style="flex:1;display:block;text-align:center;background:#25d366;color:white;padding:8px;border-radius:8px;font-size:12px;font-weight:bold;text-decoration:none;">
+            WhatsAppで共有
           </a>
         </div>\`;
+
+      // グラフを描画
+      renderChart();
+    }
+
+    function exportAsCSV() {
+      const diag = diagnosisHistory[0];
+      if (!diag) return;
+      const data = taskData[diag.task] || {};
+      const csv = [
+        '診断日時,作業内容,難易度,経験レベル,工具,予算',
+        `"${diag.timestamp}","${diag.task}",${diag.difficulty},"${diag.experience}","${diag.tools}","${diag.budget}"`
+      ].join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `diy-diagnosis-${new Date().getTime()}.csv`;
+      link.click();
     }
 
     function resetQuiz() {
       currentStep = 0; answers = {};
+      savePreviousAnswers({});
       document.getElementById('quiz-section').classList.remove('hidden');
       document.getElementById('result-section').classList.add('hidden');
+      document.getElementById('goal-section').classList.add('hidden');
       renderQuestion();
+    }
+
+    // ページ読み込み時にhistoryをロード
+    loadHistory();
+
+    // 進捗スライダーのイベントリスナー
+    document.addEventListener('input', (e) => {
+      if (e.target.id === 'goal-progress') {
+        document.getElementById('goal-progress-display').textContent = e.target.value + '%';
+      }
+    });
+
+    // 前回のデータがあれば復元
+    const prevAnswers = loadPreviousAnswers();
+    if (prevAnswers && Object.keys(prevAnswers).length > 0) {
+      answers = prevAnswers;
+      currentStep = Object.keys(prevAnswers).length - 1;
+      if (currentStep >= questions.length - 1) {
+        currentStep = questions.length - 1;
+      }
     }
 
     renderQuestion();
   </script>
-<div class="max-w-lg mx-auto px-4 mb-4">
+<div class="max-w-2xl mx-auto px-4 mb-4">
 <!-- Related Services -->
 <section class="bg-white rounded-2xl shadow-md p-5">
   <h3 style="font-size:14px;font-weight:700;color:#64748b;margin-bottom:12px;letter-spacing:0.03em;">関連サービス</h3>
@@ -491,7 +946,7 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
 </div>
 
     
-    <div class="max-w-lg mx-auto px-4">
+    <div class="max-w-2xl mx-auto px-4">
 <!-- phase8-social-proof -->
     <div class="card p-5 mb-4">
       <h3 class="font-bold text-gray-800 mb-3 text-sm">⭐ 利用者の声</h3>
@@ -520,8 +975,124 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
         </a>
       </div>
     </div>
-    <div style="background:#fafafa;border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin:10px 0;"><h2 style="font-size:13px;font-weight:700;margin-bottom:6px;color:#374151;">🔍 計算・判定の仕組み</h2><p style="font-size:12px;color:#6b7280;line-height:1.7;">入力された値を計算式やスコアリングロジックで処理し、あなたに合った結果を算出します。本ツールの結果はあくまで参考情報です。重要な判断の際は専門家にご相談ください。</p></div>
+    <div style="background:#fafafa;border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin:10px auto;max-width:680px;"><h2 style="font-size:13px;font-weight:700;margin-bottom:6px;color:#374151;">🔍 計算・判定の仕組み</h2><p style="font-size:12px;color:#6b7280;line-height:1.7;">入力された値を計算式やスコアリングロジックで処理し、あなたに合った結果を算出します。本ツールの結果はあくまで参考情報です。重要な判断の際は専門家にご相談ください。</p></div>
 </div>
+<!-- r31-use-cases -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<h2 style="font-size:1.125rem;font-weight:700;margin:0 0 1rem;color:#1e293b;border-left:4px solid #4f46e5;padding-left:10px">こんな方・シーンで役立ちます</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem">
+<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<div style="font-size:1.5rem;margin-bottom:.4rem">👤</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">はじめてご利用の方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">シンプルな操作で目的の情報・計算結果をすぐに得たい方に。会員登録・ダウンロード不要でご利用いただけます。</div>
+</div>
+<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<div style="font-size:1.5rem;margin-bottom:.4rem">📱</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">スマートフォンでサッと調べたい方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">通勤・移動中や外出先からでもスムーズに利用できるモバイル最適化設計です。</div>
+</div>
+<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<div style="font-size:1.5rem;margin-bottom:.4rem">👨‍👩‍👦</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">家族で情報を共有したい方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">家族全員で使えるシンプルなインターフェースで、大切な情報を共有・管理したい方に。</div>
+</div>
+<div style="padding:1rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<div style="font-size:1.5rem;margin-bottom:.4rem">🔍</div>
+<div style="font-weight:700;font-size:.9rem;color:#1e293b;margin-bottom:.4rem">複数の選択肢を比較検討したい方</div>
+<div style="font-size:.85rem;color:#64748b;line-height:1.7">条件を変えながら何度でも計算・診断して、複数のシナリオを客観的に比較したい方に。</div>
+</div>
+</div>
+</div>
+<!-- r31-extended-faq -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="background:white;border-radius:16px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.08)">
+<h2 style="font-size:1.05rem;font-weight:700;margin:0 0 1rem;border-left:4px solid #4f46e5;padding-left:10px;color:#1e293b">よくある質問（詳細）</h2>
+<div style="margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid #f1f5f9">
+<p style="font-size:.9rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">Q: 計算結果の精度はどのくらいですか？</p>
+<p style="font-size:.85rem;color:#475569;line-height:1.8;margin:0">A: 本ツールは公的機関発表の標準的な数値・係数を使用しています。ただし個人の状況・条件によって実際の結果は異なる場合があります。目安・参考値としてご活用いただき、重要な判断の際は専門家へのご相談をお勧めします。</p>
+</div>
+<div style="margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid #f1f5f9">
+<p style="font-size:.9rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">Q: 入力したデータのプライバシーは守られますか？</p>
+<p style="font-size:.85rem;color:#475569;line-height:1.8;margin:0">A: はい。本ツールはすべての処理をお使いのブラウザ内で完結させています。入力したデータはサーバーに送信・保存されることはありません。個人情報の漏洩リスクなく安心してご利用いただけます。</p>
+</div>
+<div style="margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid #f1f5f9">
+<p style="font-size:.9rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">Q: スマートフォンでも問題なく使えますか？</p>
+<p style="font-size:.85rem;color:#475569;line-height:1.8;margin:0">A: はい。すべてのデバイス（スマートフォン・タブレット・PC）に最適化したレスポンシブデザインを採用しています。画面サイズに合わせて自動でレイアウトが調整されます。</p>
+</div>
+<div style="margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid #f1f5f9">
+<p style="font-size:.9rem;font-weight:700;color:#1e293b;margin:0 0 .5rem">Q: このツールは無料でいつまでも使えますか？</p>
+<p style="font-size:.85rem;color:#475569;line-height:1.8;margin:0">A: AppADayCreatorのすべてのツールは完全無料でご提供しています。広告収入によって運営しているため、ユーザーの皆様は料金なしでご利用いただけます。今後も無料でのご提供を続けることを予定しています。</p>
+</div>
+
+</div>
+</div>
+<!-- r31-tool-notice -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="padding:1.25rem 1.5rem;background:#fef3c7;border:1px solid #fbbf24;border-radius:.75rem">
+<h3 style="font-size:1rem;font-weight:700;margin:0 0 .75rem;color:#92400e">⚠️ ご利用時の注意事項</h3>
+<ul style="margin:0;padding-left:1.25rem;font-size:.88rem;color:#78350f;line-height:2">
+<li style='margin-bottom:.4rem'>本ツールの結果はあくまで参考情報です。実際の状況に応じてご判断ください</li>
+<li style='margin-bottom:.4rem'>重要な決定（医療・法律・財務等）を行う際は必ず専門家にご相談ください</li>
+<li style='margin-bottom:.4rem'>入力データはサーバーに送信されず、すべてブラウザ内で処理されます</li>
+<li style='margin-bottom:.4rem'>ブラウザの種類・バージョンにより一部機能が正常に動作しない場合があります</li>
+<li style='margin-bottom:.4rem'>本ツールの計算・診断ロジックは定期的に更新しています</li>
+</ul>
+</div>
+</div>
+<!-- r31-tool-references -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="padding:1.25rem 1.5rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.75rem">
+<h3 style="font-size:1rem;font-weight:700;margin:0 0 .75rem;color:#1e293b">📚 関連する公的情報・参考リンク</h3>
+<ul style="margin:0;padding-left:1.25rem;font-size:.88rem;color:#374151;line-height:1.9">
+<li style='margin-bottom:.5rem'><a href="https://www.gov-online.go.jp/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5">政府広報オンライン</a> — くらしに役立つ最新の政策・制度・行政情報</li>
+<li style='margin-bottom:.5rem'><a href="https://www.e-gov.go.jp/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5">e-Gov 電子政府の総合窓口</a> — 法令・行政手続・公的制度の詳細情報</li>
+<li style='margin-bottom:.5rem'><a href="https://www.cao.go.jp/consumer/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5">消費者庁</a> — 消費者の権利・安全・表示に関する公的情報</li>
+<li style='margin-bottom:.5rem'><a href="https://www.nhk.or.jp/life/" target="_blank" rel="noopener noreferrer" style="color:#4f46e5">NHK くらし解説</a> — 暮らしのさまざまな疑問をわかりやすく解説</li>
+</ul>
+</div>
+</div>
+<!-- r31-tool-about -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="padding:1.25rem 1.5rem;background:#f0f9ff;border:1px solid #bae6fd;border-radius:.75rem">
+<h3 style="font-size:1rem;font-weight:700;margin:0 0 .75rem;color:#0c4a6e">ℹ️ このツールについて</h3>
+<p style="margin:0;font-size:.88rem;color:#0c4a6e;line-height:1.9">「DIYリフォーム難易度診断」はAppADayCreatorが提供する無料Webツールです。ライフスタイルに関する情報を素早く手軽に確認できます。会員登録・アプリインストール不要で、ブラウザからすぐにご利用いただけます。すべての処理はブラウザ内で完結するため、入力した情報が外部サーバーに送信されることはなく、プライバシーも保護されます。スマートフォン・タブレット・PCのすべてに対応したレスポンシブデザインを採用し、外出先や通勤中でも快適にご利用いただけます。AppADayCreatorでは、日常生活のあらゆるシーンで役立つWebツールを400本以上無料で提供しています。金融・健康・育児・キャリア・旅行など幅広いカテゴリのツールをご活用ください。</p>
+</div>
+</div>
+<!-- r31-extra-guide -->
+<div style="margin:1.5rem auto;max-width:760px;padding:0 1rem">
+<div style="background:white;border-radius:16px;padding:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+<h2 style="font-size:1.05rem;font-weight:700;margin:0 0 1rem;border-left:4px solid #10b981;padding-left:10px;color:#1e293b">ライフスタイルツールの活用ガイド</h2>
+<p style="font-size:.88rem;color:#475569;line-height:1.9;margin:0 0 .75rem">
+本ツール「DIYリフォーム難易度診断」は、ライフスタイルに関連する情報の確認・計算・診断をブラウザ上で手軽に行えるように設計されています。
+初回利用時にはまずフォームや入力欄に必要な情報を入力し、「計算」「診断」「確認」などのボタンを押してください。
+結果はリアルタイムで表示され、条件を変えながら何度でも再計算・再診断をお試しいただけます。
+ご不明な点があった場合は、各入力項目の横にある説明文や「？」アイコンをご確認ください。
+</p>
+<p style="font-size:.88rem;color:#475569;line-height:1.9;margin:0 0 .75rem">
+スマートフォンからのご利用でも、PC同様にすべての機能をお使いいただけます。
+スマートフォンのホーム画面に本ページを追加（ブックマーク）すれば、アプリのように素早くアクセスできます。
+ブラウザの印刷機能（Ctrl+P または右上メニュー）を使えば、結果をPDF形式で保存・印刷することが可能です。
+計算結果のスクリーンショットを家族・友人・専門家と共有するのもお勧めです。
+</p>
+<h3 style="font-size:.95rem;font-weight:700;margin:1rem 0 .6rem;color:#1e293b">AppADayCreator のツールの特徴</h3>
+<ul style="margin:0;padding-left:1.25rem;font-size:.88rem;color:#475569;line-height:2.1">
+<li><strong>完全無料・登録不要</strong> — アカウント作成・メールアドレス登録なしで今すぐご利用いただけます</li>
+<li><strong>プライバシー完全保護</strong> — 入力したデータはすべてブラウザ内で処理され、外部サーバーには一切送信されません</li>
+<li><strong>マルチデバイス完全対応</strong> — スマートフォン・タブレット・PCすべてで最適なレイアウトで表示されます</li>
+<li><strong>定期的なコンテンツ更新</strong> — 法改正・制度変更・最新データに対応した情報を随時更新しています</li>
+<li><strong>広告による持続的な無料運営</strong> — 広告収入によって運営しているため、ユーザーの皆様は永続的に無料でご利用いただけます</li>
+<li><strong>400本以上のツールを無料提供</strong> — お金・健康・育児・キャリア・旅行・住まいなど幅広いジャンルのツールをご活用ください</li>
+</ul>
+<h3 style="font-size:.95rem;font-weight:700;margin:1.25rem 0 .6rem;color:#1e293b">関連ツールのご紹介</h3>
+<p style="font-size:.88rem;color:#475569;line-height:1.9;margin:0">
+AppADayCreatorでは、本ツール以外にもライフスタイルカテゴリの便利なツールを多数ご提供しています。
+家計管理・健康記録・育児サポート・キャリア計画・旅行準備・住まいの整理など、日常生活のさまざまなシーンで役立つツールがそろっています。
+ぜひトップページから他のツールもご活用ください。すべて完全無料・登録不要でお使いいただけます。
+本ツールへのご意見・ご感想はお問い合わせページからお送りいただけます。皆様のフィードバックが品質改善につながります。
+</p>
+</div>
+</div>
+
 <!-- rakuten-affiliate-block -->
     <div style="border:1px solid #BF0000;background:#fff9f9;border-radius:10px;padding:14px;margin:12px auto;max-width:480px;text-align:center;">
       <p style="font-size:0.85rem;color:#4b5563;margin-bottom:8px;">🛒 関連商品を楽天市場で探す</p>
@@ -548,10 +1119,33 @@ ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important;margin:0!impor
 </div>
 <footer class="text-center text-xs text-gray-400 py-6 mt-4">
     <p>© 2026 AppliHub | <a href="/privacy/" class="underline">プライバシーポリシー</a></p>
-          <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:12px 16px;margin:0;font-size:11px;color:#64748b;text-align:center;line-height:1.7;">
+          <div style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:12px 16px;margin:0 auto;max-width:720px;font-size:11px;color:#64748b;text-align:center;line-height:1.7;">
   <strong>免責事項</strong>：本ツールの計算・診断結果はあくまで参考情報です。本サービスの利用により生じた損害について、当サイトは一切の責任を負いません。
 </div>
 <p style="text-align:center;font-size:10px;color:#9ca3af;margin-top:3px;">最終更新: 2026年5月 | 本サービスはアフィリエイト広告を掲載しています</p>
+<p style="text-align:center;font-size:.75rem;color:#9ca3af;padding:.5rem 0"><a href="/privacy-policy.html" style="color:#9ca3af">プライバシーポリシー</a></p>
 </footer>
+<div style="text-align:center;padding:10px 16px 14px;background:#eef2ff;border-top:2px solid #c7d2fe;margin-top:8px">
+<a href="/blog/" style="color:#4f46e5;font-size:.85rem;font-weight:700">📖 マネー・育児・キャリアのコラムを読む →</a>
+</div>
+<div style="background:#eef2ff;border-left:4px solid #4f46e5;border-radius:.5rem;padding:1rem 1.25rem;margin:1.5rem auto;max-width:760px;font-size:.875rem">
+<p style="margin:0 0 .5rem;font-weight:700;color:#3730a3">📖 お役立ちコラム</p>
+<ul style="margin:0;padding-left:1.25rem;color:#4f46e5;line-height:2">
+<li><a href="/blog/stock-investment-beginner/" style="color:#4f46e5">株式投資の始め方【初心者完全ガイド】</a></li>
+<li><a href="/blog/nisa-comparison/" style="color:#4f46e5">新NISA vs iDeCo 徹底比較</a></li>
+<li><a href="/blog/investment-risk-management/" style="color:#4f46e5">投資のリスク管理入門</a></li>
+</ul>
+</div>
+<!-- r17-mobile-ux -->
+<a href="#top" id="back-to-top" aria-label="ページトップへ戻る" style="display:none;position:fixed;bottom:24px;right:20px;background:#4f46e5;color:#fff;border:none;border-radius:50%;width:48px;height:48px;font-size:1.4rem;line-height:48px;text-align:center;text-decoration:none;box-shadow:0 4px 12px rgba(79,70,229,.4);z-index:9000;cursor:pointer" title="ページトップへ">↑</a>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if(!btn) return;
+  window.addEventListener('scroll', function(){
+    btn.style.display = window.scrollY > 400 ? 'block' : 'none';
+  }, {passive:true});
+})();
+</script>
 </body>
 </html>
